@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "MobilePhoneCollector (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "MobilePhoneCollector (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

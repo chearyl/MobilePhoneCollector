@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="MobilePhoneCollector.Source.Pages.PhoneListingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MobilePhoneCollector.Source.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Padding="20" RowDefinitions="Auto,Auto,*,Auto">
+        <Grid Grid.Row="0">
+            <StackPanel>
+                <TextBlock Text="My Collection" FontSize="30" FontWeight="SemiBold"/>
+                <TextBlock Text="48 phones in database" Opacity="0.7"/>
+            </StackPanel>
+            <Button Click="AddNewPhone" Content="＋ Add phone" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="0,24,0,12" ColumnDefinitions="400, Auto, Auto, Auto" ColumnSpacing="10">
+            <TextBox Name="SearchKeyText" Grid.Column="0" PlaceholderText="Search Model" />
+            <DropDownButton Grid.Column="1" x:Name="BrandOptionButton" Content="" CanBeScrollAnchor="True" Width="150">
+                <DropDownButton.Flyout>
+                    <MenuFlyout Placement="Bottom" x:Name="BrandOptionItem" />
+                </DropDownButton.Flyout>
+            </DropDownButton>
+            <Button Grid.Column="2" Name="SearchNow" Content="🔎︎" Click="SearchClick" />
+            <Button Grid.Column="3" Name="RemoveSearch" Content="❌" Click="SearchClick" />
+        </Grid>
+
+        <ScrollView Grid.Row="2" Margin="0 20 0 0">
+            <Grid ColumnDefinitions="*,*,*,*,*,*" Name="PhoneListingGrid" RowSpacing="20" />
+        </ScrollView>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Spacing="10" Margin="0 20 0 0">
+            <TextBlock Padding="10" Name="PageDisplay" />
+            <Button Name="PreviousPageBtn" Content="⮜" Click="PageChange" />
+            <TextBlock Name="TotalDisplay" Padding="10"/>
+            <Button Name="NextPageBtn" Content="⮞" Click="PageChange" />
+        </StackPanel>
+    </Grid>
+</Page>

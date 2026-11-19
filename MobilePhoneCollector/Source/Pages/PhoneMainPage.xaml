@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="MobilePhoneCollector.Source.Pages.PhoneMainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="using:MobilePhoneCollector.Source.Pages"
+    mc:Ignorable="d">
+
+    <Grid RowDefinitions="Auto,Auto,*" Padding="20">
+        <StackPanel Grid.Row="0" Padding="28" Spacing="20">
+            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="20">
+                <Button Grid.Column="0" Click="BackToCollection" Content="← Collection"/>
+                <Grid Grid.Column="1">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Image Name="PhoneImage" Stretch="Uniform" Width="100" Height="100" />
+                        <TextBlock Name="PhoneModelText" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="2" HorizontalAlignment="Right">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Button Content="Delete" Width="100" Click="DeletePhone" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </StackPanel>
+
+        <Grid Grid.Row="1" Margin="0 10 0 0">
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <Button Name="SpecTab" Click="ChangeTab" Content="Specification" Width="200" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" CornerRadius="0" />
+                <Button Name="ImagesTab" Click="ChangeTab" Content="" Width="200" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" CornerRadius="0" />
+                <Button Name="ReviewsTab" Click="ChangeTab" Content="" Width="200" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" CornerRadius="0" />
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2" Name="DetailPage" Visibility="Collapsed">
+            <local:PhoneDetailPage Phone="{x:Bind Phone, Mode=OneWay}" />
+        </Grid>
+        <Grid Grid.Row="2" Name="ImagePage" Visibility="Collapsed">
+            <local:PhoneImagePage Phone="{x:Bind Phone, Mode=OneWay}" />
+        </Grid>
+        <Grid Grid.Row="2" Name="ReviewPage" Visibility="Collapsed">
+            <local:PhoneReviewPage Phone="{x:Bind Phone, Mode=OneWay}" />
+        </Grid>
+    </Grid>
+</Page>

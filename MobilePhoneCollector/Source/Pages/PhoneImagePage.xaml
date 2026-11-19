@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="MobilePhoneCollector.Source.Pages.PhoneImagePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MobilePhoneCollector.Source.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid ColumnDefinitions="*,500" ColumnSpacing="20">
+        <Border Grid.Column="0" Background="White" BorderThickness="1" CornerRadius="10" BorderBrush="#e5e6eb" Padding="10">
+            <Grid RowDefinitions="*,Auto">
+                <Border Grid.Row="0" Background="#eef1f6" BorderThickness="0" CornerRadius="10" Padding="10">
+                    <Image Name="DisplayImagePanel" Stretch="Uniform" Height="600" Width="600" />
+                </Border>
+                <ScrollView Padding="0 0 0 10" Grid.Row="1" ContentOrientation="Horizontal" Margin="0 20 0 0">
+                    <StackPanel Orientation="Horizontal" Spacing="10" Name="ImageList" />
+                </ScrollView>
+            </Grid>
+        </Border>
+        <Grid Grid.Column="1" RowDefinitions="Auto, Auto">
+            <Border Grid.Row="0" Background="White" BorderThickness="1" CornerRadius="10" BorderBrush="#e5e6eb" Padding="10">
+                <Grid>
+                    <StackPanel Orientation="Vertical" Spacing="10">
+                        <TextBlock Name="ImageName" />
+                        <TextBlock Name="ImageFormat" />
+                        <TextBlock Name="ImageResolution" />
+                        <TextBlock Name="ImageSize" />
+                        <TextBlock Name="ImageAdded" />
+                        <TextBlock Name="ImageCover" />
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Button Name="SetCoverBtn" Click="SetCover" Content="Set as cover" />
+                            <Button Name="DeleteBtn" Click="DeleteImage" Content="Delete" />
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Grid Grid.Row="1" Padding="10">
+                <Button Content="Upload new image" Click="AddNewFile" Width="200" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
